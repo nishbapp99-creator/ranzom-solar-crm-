@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="seq_ranzom_solar_quotation" model="ir.sequence">
+            <field name="name">Ranzom Solar Quotation</field>
+            <field name="code">ranzom.solar.quotation</field>
+            <field name="prefix">RSQ/%(year)s/</field>
+            <field name="padding">4</field>
+            <field name="company_id" eval="False"/>
+        </record>
+    </data>
+</odoo>

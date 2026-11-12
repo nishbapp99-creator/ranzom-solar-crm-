@@ -1,0 +1,5 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ranzom_solar_followup_user,ranzom.solar.followup user,model_ranzom_solar_followup,base.group_user,1,1,1,1
+access_ranzom_solar_quotation_user,ranzom.solar.quotation user,model_ranzom_solar_quotation,base.group_user,1,1,1,1
+access_ranzom_solar_quotation_line_user,ranzom.solar.quotation.line user,model_ranzom_solar_quotation_line,base.group_user,1,1,1,1
+access_ranzom_solar_delete_service_user,ranzom.solar.delete.service user,model_ranzom_solar_delete_service,base.group_user,1,1,1,1

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+
+    <record id="view_ranzom_solar_followup_list" model="ir.ui.view">
+        <field name="name">ranzom.solar.followup.list</field>
+        <field name="model">ranzom.solar.followup</field>
+        <field name="arch" type="xml">
+            <list string="Follow-ups">
+                <field name="name"/>
+                <field name="lead_id"/>
+                <field name="followup_date"/>
+                <field name="assigned_to"/>
+                <field name="followup_type"/>
+                <field name="status" widget="badge"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="view_ranzom_solar_followup_form" model="ir.ui.view">
+        <field name="name">ranzom.solar.followup.form</field>
+        <field name="model">ranzom.solar.followup</field>
+        <field name="arch" type="xml">
+            <form string="Follow-up">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="lead_id"/>
+                            <field name="followup_type"/>
+                            <field name="followup_date"/>
+                        </group>
+                        <group>
+                            <field name="assigned_to"/>
+                            <field name="status"/>
+                            <field name="next_followup_date"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="notes"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_ranzom_solar_followup_search" model="ir.ui.view">
+        <field name="name">ranzom.solar.followup.search</field>
+        <field name="model">ranzom.solar.followup</field>
+        <field name="arch" type="xml">
+            <search string="Search Follow-ups">
+                <field name="name"/>
+                <field name="lead_id"/>
+                <field name="assigned_to"/>
+                <field name="status"/>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_ranzom_solar_followups" model="ir.actions.act_window">
+        <field name="name">Follow-ups</field>
+        <field name="res_model">ranzom.solar.followup</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="view_ranzom_solar_followup_search"/>
+    </record>
+
+    <menuitem id="menu_ranzom_solar_followups"
+              name="Follow-ups"
+              parent="crm.crm_menu_root"
+              action="action_ranzom_solar_followups"
+              sequence="30"/>
+
+
+   <record id="action_ranzom_solar_followup_form" model="ir.actions.act_window">
+        <field name="name">Schedule Follow-up</field>
+        <field name="res_model">ranzom.solar.followup</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_ranzom_solar_followup_form"/>
+        <field name="target">new</field>
+        <field name="context">{'default_lead_id': active_id, 'default_assigned_to': uid}</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <record id="crm_lead_view_form_solar" model="ir.ui.view">
+        <field name="name">crm.lead.form.solar</field>
+        <field name="model">crm.lead</field>
+        <field name="inherit_id" ref="crm.crm_lead_view_form"/>
+        <field name="arch" type="xml">
+
+            <xpath expr="//sheet/notebook" position="inside">
+                <page string="Solar Details" name="solar_details">
+                    <group>
+                        <group string="Customer Information">
+                            <field name="solar_customer_type"/>
+                            <field name="enquiry_source"/>
+                            <field name="solar_location"/>
+                            <field name="solar_customer_address"/>
+                            <field name="solar_consumer_number"/>
+                            <field name="solar_kseb_section"/>
+                            <field name="solar_subsidy_required"/>
+                        </group>
+                        <group string="Solar Requirements">
+                            <field name="solar_system_type"/>
+                            <field name="solar_capacity"/>
+                            <field name="monthly_electricity_bill"/>
+                        </group>
+                    </group>
+                </page>
+
+                <page string="Follow-up History" name="followup_history">
+                    <field name="followup_ids">
+                        <list>
+                            <field name="name"/>
+                            <field name="followup_date"/>
+                            <field name="followup_type"/>
+                            <field name="assigned_to"/>
+                            <field name="status"/>
+                            <field name="next_followup_date"/>
+                        </list>
+                    </field>
+                </page>
+            </xpath>
+
+
+            <xpath expr="//sheet" position="before">
+    <div class="oe_button_box" name="button_box">
+        <button name="%(ranzom_solar.action_ranzom_solar_followup_form)d"
+                type="action"
+                string="Schedule Follow-up"
+                class="oe_stat_button"
+                icon="fa-calendar"
+                context="{'default_lead_id': id, 'default_assigned_to': uid}"/>
+    </div>
+</xpath>
+        </field>
+    </record>
+</odoo>
